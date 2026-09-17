@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  syntax-check:
+    name: Python 语法检查 (py_compile)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check tkinter availability
+        run: python -c "import tkinter, urllib.request, json, csv; print('tkinter/标准库 OK')"
+
+      - name: Compile all modules
+        run: python -m py_compile main.py app.py chat_window.py engine.py ai_client.py langs.py config.py
+
+      - name: Import smoke test
+        run: python -c "import config, langs, ai_client, engine, app, chat_window; print('import OK, version', config.VERSION)"
