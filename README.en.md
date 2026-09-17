@@ -7,6 +7,7 @@ multiple API presets with one-click switching, **pure Python standard library �
 [简体中文](README.md) | **English**
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![CI](https://github.com/HeSheng114514/AI-Batch-Translator/actions/workflows/ci.yml/badge.svg)](https://github.com/HeSheng114514/AI-Batch-Translator/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)](#requirements)
 [![Dependencies](https://img.shields.io/badge/Dependencies-none-brightgreen.svg)](#requirements)
