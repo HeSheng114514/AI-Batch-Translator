@@ -35,7 +35,7 @@ def run():
 class TranslatorApp:
     def __init__(self, root):
         self.root = root
-        root.title("AI 批量翻译工具")
+        root.title(config.APP_TITLE)
         root.geometry("960x700")
         root.minsize(860, 620)
 
@@ -52,6 +52,7 @@ class TranslatorApp:
         self._apply_settings_to_ui()
         self._poll_queue()
         self.root.protocol("WM_DELETE_WINDOW", self._on_app_close)
+        self.log("%s v%s 已启动 · 无需第三方依赖" % (config.APP_NAME_CN, config.VERSION))
 
     # ==================================================================
     def _on_app_close(self):
@@ -283,11 +284,12 @@ class TranslatorApp:
             messagebox.showinfo("输出目录", "输出目录尚未生成，请先运行一次翻译。")
 
     def open_help(self):
-        readme = os.path.join(config.APP_DIR, "README使用说明.md")
-        if os.path.isfile(readme):
-            os.startfile(readme)  # noqa
-        else:
-            messagebox.showinfo("帮助", "未找到说明文件 README使用说明.md")
+        for name in ("README.md", "README使用说明.md", "README.en.md"):
+            readme = os.path.join(config.APP_DIR, name)
+            if os.path.isfile(readme):
+                os.startfile(readme)  # noqa
+                return
+        messagebox.showinfo("帮助", "未找到说明文件 README.md")
 
     # ==================================================================
     # 翻译主流程

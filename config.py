@@ -8,6 +8,12 @@ import os
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(APP_DIR, "config.json")
 
+# ---- 项目标识（窗口标题、日志、README 保持一致）----
+APP_NAME = "AI Batch Translator"
+APP_NAME_CN = "AI 批量翻译工具"
+VERSION = "1.0.0"
+APP_TITLE = "%s（%s）v%s" % (APP_NAME_CN, APP_NAME, VERSION)
+
 _DEFAULTS = {
     # ---- AI 接口（OpenAI 兼容）----
     "base_url": "https://api.deepseek.com/v1",   # 例如 DeepSeek / OpenAI / 通义 / 智谱

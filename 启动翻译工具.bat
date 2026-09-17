@@ -1,9 +1,3 @@
 @echo off
-rem 启动批量翻译工具（无控制台窗口）
-cd /d "%~dp0"
-where pythonw >nul 2>nul
-if %errorlevel%==0 (
-    start "" pythonw main.py
-) else (
-    start "" python main.py
-)
+rem 中文启动入口：转发到 start.bat（ASCII 文件名，兼容性更好）
+call "%~dp0start.bat"

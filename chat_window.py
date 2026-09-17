@@ -18,6 +18,7 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 
 import langs
+import config
 from ai_client import AIClient
 
 # 常用短语（按源语言给出，点击填入输入框）
@@ -69,7 +70,7 @@ class ChatTranslateWindow(tk.Toplevel):
         self._tts_proc = None      # 当前朗读进程
         self._tts_text = None      # 当前朗读内容（用于再次点击=停止）
 
-        self.title("对话翻译")
+        self.title("对话翻译 · %s" % config.APP_NAME_CN)
         self.geometry("940x600")
         self.minsize(760, 500)
         self.transient(app.root)

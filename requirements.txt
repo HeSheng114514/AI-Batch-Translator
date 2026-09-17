@@ -1,0 +1,8 @@
+# 本项目只使用 Python 标准库（tkinter / urllib / json / csv …），
+# 不需要任何第三方依赖，因此无需 pip install。
+#
+# 运行环境要求：
+#   Python 3.8+（自带 tkinter，Windows 官方安装包默认包含）
+#
+# 直接双击 start.bat，或执行：
+#   python main.py
