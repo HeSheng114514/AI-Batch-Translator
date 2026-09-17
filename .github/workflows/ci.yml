@@ -9,8 +9,10 @@ on:
 
 jobs:
   syntax-check:
-    name: Python 语法检查 (py_compile)
+    name: Python syntax & import check
     runs-on: windows-latest
+    env:
+      PYTHONIOENCODING: utf-8
     steps:
       - uses: actions/checkout@v4
 
@@ -19,8 +21,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Check tkinter availability
-        run: python -c "import tkinter, urllib.request, json, csv; print('tkinter/标准库 OK')"
+      - name: Check standard library (tkinter/urllib)
+        run: python -c "import tkinter, urllib.request, json, csv; print('stdlib OK, Tk', tkinter.TkVersion)"
 
       - name: Compile all modules
         run: python -m py_compile main.py app.py chat_window.py engine.py ai_client.py langs.py config.py
